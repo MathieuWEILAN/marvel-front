@@ -1,6 +1,13 @@
 import logo from "../img/Marvel_Logo.svg.png";
+import Signup from "./Signup";
+import { useState } from "react";
 
-const Header = ({ search, handleSearch }) => {
+const Header = ({ handleSearch }) => {
+  const [displaySignup, setDisplaySignup] = useState(false);
+  const signupOn = () => {
+    setDisplaySignup(!displaySignup);
+  };
+
   return (
     <div>
       <div className="header-container">
@@ -8,6 +15,10 @@ const Header = ({ search, handleSearch }) => {
           <img src={logo} alt="" className="header-logo" />
         </div>
         <input type="text" className="header-input" onChange={handleSearch} />
+        <button onClick={signupOn}>se connecter</button>
+        {displaySignup ? (
+          <Signup signupOn={signupOn} setDisplaySignup={setDisplaySignup} />
+        ) : null}
       </div>
     </div>
   );

@@ -47,6 +47,9 @@ body {
   padding: 20px;
   box-sizing: border-box;
 }
+.link {
+  position: relative;
+}
 
 .character-container {
   border: 4px solid orange;
@@ -60,12 +63,17 @@ body {
   width: 220px;
   height: 400px;
   overflow: hidden;
+  position: relative;
 }
 
 .character-patch-pic {
   width: 100%;
   height: 60%;
   object-fit: cover;
+}
+
+.checkbox-fav {
+  position: absolute;
 }
 
 /* COMICS BY CHARACTER */
@@ -81,4 +89,83 @@ body {
   margin: 10px;
   width: 400px;
   height: 700px;
+}
+
+/* PAGE */
+
+.page {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  background-color: red;
+  align-items: center;
+}
+
+.page-btn {
+  margin: 5px;
+  background-color: rosybrown;
+  border: none;
+  color: white;
+}
+/* SIGNUP */
+/* The Modal (background) */
+.signup {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.signup-content {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  height: 50%;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 35%; /* Could be more or less, depending on screen size */
+  background-image: url("./img/deadpool.webp");
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  width: 5%;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+}
+
+form input {
+  margin: 10px;
+  padding: 10px;
+  width: 80%;
+  border: none;
+  border-bottom: 1px red dashed;
+  background-color: black;
+  color: white;
+}
+
+.btn-send {
+  margin: 40px;
+  width: 30%;
+  background-color: red;
+  color: white;
 }

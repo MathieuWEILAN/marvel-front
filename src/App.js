@@ -7,6 +7,7 @@ import Footer from "./component/Footer";
 import Menu from "./component/Menu";
 import CharacterComics from "./pages/CharacterComics";
 import Comics from "./pages/Comics";
+import Signup from "./component/Signup";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -18,12 +19,24 @@ function App() {
 
   return (
     <Router>
-      <Header search={search} handleSearch={handleSearch} />
+      <Header handleSearch={handleSearch} />
       <Menu />
       <Routes>
-        <Route path="/characters" element={<Characters search={search} />} />
+        <Route
+          path="/characters"
+          element={<Characters search={search} setSearch={setSearch} />}
+        />
         <Route path="/comics/:characterId" element={<CharacterComics />} />
-        <Route path="/comics" element={<Comics search={search} />} />
+        <Route
+          path="/comics"
+          element={
+            <Comics
+              search={search}
+              handleSearch={handleSearch}
+              setSearch={setSearch}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </Router>

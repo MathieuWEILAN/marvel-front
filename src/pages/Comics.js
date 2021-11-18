@@ -1,17 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Page from "../component/Page";
 
 const Comics = ({ search }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const comics = search ? `title=${search}` : "";
         const response = await axios.get(
-          `http://localhost:3001/comics?${comics}`
+          `http://localhost:3001/comics?${comics}&page=${page}`
         );
         console.log(response.data);
         setData(response.data);
@@ -21,7 +23,7 @@ const Comics = ({ search }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [search, page]);
 
   return isLoading ? (
     <div>Chargement en cours</div>
@@ -39,13 +41,14 @@ const Comics = ({ search }) => {
               />
               <div>{item.title}</div>
               <div>{item.description}</div>
+              <button className="btn-fav">add to fav</button>
             </div>
           );
         })}
       </div>
 
       <div>
-        <div></div>
+        <Page data={data} page={page} setPage={setPage} />
       </div>
     </div>
   );
