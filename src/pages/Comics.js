@@ -16,7 +16,7 @@ const Comics = ({ search, token }) => {
         // aller chercher les comics
         const comics = search ? `title=${search}` : "";
         const response = await axios.get(
-          `http://localhost:3001/comics?${comics}&page=${page}`
+          `https://mathieu-marvel.herokuapp.com/comics?${comics}&page=${page}`
         );
         setTab(response.data);
         console.log("tab comics général", response.data);
@@ -24,7 +24,7 @@ const Comics = ({ search, token }) => {
         //aller chercher les favoris pour comparer les 2 tableaux
         if (token) {
           const myFavoritesResponse = await axios.get(
-            `http://localhost:3001/favoris-comics?token=${token}`
+            `https://mathieu-marvel.herokuapp.com/favoris-comics?token=${token}`
           );
           console.log("myFavoritesResponse ===>", myFavoritesResponse);
           // création d'un 3eme tableau qui va mixer les 2 responses (response et myFavoritesResponse) et sera sauvegarader dans le state data
@@ -61,7 +61,7 @@ const Comics = ({ search, token }) => {
       console.log("click");
       const newFav = { favComics: item, token: token };
       const response = await axios.post(
-        "http://localhost:3001/handlecomics",
+        "https://mathieu-marvel.herokuapp.com/handlecomics",
         newFav
       );
       console.log("post", newFav);

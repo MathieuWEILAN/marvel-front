@@ -15,14 +15,14 @@ const Characters = ({ search, token }) => {
         // aller chercher les personnages
         const character = search ? `name=${search}` : "";
         const response = await axios.get(
-          `http://localhost:3001/characters?${character}&page=${page}`
+          `https://mathieu-marvel.herokuapp.com/characters?${character}&page=${page}`
         );
         setTab(response.data);
 
         //aller chercher les favoris pour comparer les 2 tableaux
         if (token) {
           const myFavoritesResponse = await axios.get(
-            `http://localhost:3001/favoris?token=${token}`
+            `https://mathieu-marvel.herokuapp.com/favoris?token=${token}`
           );
           console.log("myFavoritesResponse ===>", myFavoritesResponse);
 
@@ -60,7 +60,7 @@ const Characters = ({ search, token }) => {
       console.log("click");
       const newFav = { favCharacter: item, token: token };
       const response = await axios.post(
-        "http://localhost:3001/handlecharacter",
+        "https://mathieu-marvel.herokuapp.com/handlecharacter",
         newFav
       );
       console.log("post", newFav);

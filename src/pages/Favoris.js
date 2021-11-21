@@ -8,7 +8,7 @@ const Favoris = ({ token }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/favoris?token=${token}`
+          `https://mathieu-marvel.herokuapp.com/favoris?token=${token}`
         );
         console.log(response.data);
         setData(response.data);
