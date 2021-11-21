@@ -35,7 +35,7 @@ const Signup = ({ signupOn, setDisplaySignup, setToken }) => {
         };
         console.log(newUser);
         const response = await axios.post(
-          "http://localhost:3001/signup",
+          "https://mathieu-marvel.herokuapp.com/signup",
           newUser
         );
         setUser(response.data);

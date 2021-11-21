@@ -27,7 +27,10 @@ const Login = ({ loginOn, setDisplayOn, setToken }) => {
       } else {
         const user = { email: email, password: password };
         console.log(user);
-        const response = await axios.post("http://localhost:3001/login", user);
+        const response = await axios.post(
+          "https://mathieu-marvel.herokuapp.com/login",
+          user
+        );
         const token = response.data.token;
         const id = response.data.id;
         Cookies.set("token", token, { expires: 14 });
