@@ -1,18 +1,26 @@
 /* Other rules */
 
+.font-link {
+  font-family: "Bangers", cursive;
+}
+
 body {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  font-family: "Bangers", cursive;
+  /* background-image: url("./img/universe-stars-beskonechnost.jpg"); */
+  margin: 0px;
 }
 
 /* HEADER */
 
 .header-container {
-  background-color: yellow;
   display: flex;
   flex-direction: column;
-
+  /* background-image: url("./img/dessin.jpg"); */
+  background-size: contain;
   align-items: center;
+  position: relative;
 }
 .header-container-logo {
   display: flex;
@@ -21,74 +29,188 @@ body {
 }
 
 .header-logo {
-  width: 30%;
+  width: 20%;
 }
 
 .header-input {
-  width: 50%;
+  width: 20%;
   margin: 10px;
-  padding: 5px;
+  padding: 15px;
+  border-radius: 50% 10% / 10% 40%;
+  font-family: "Bangers", cursive;
+  font-size: 20px;
+}
+::placeholder {
+  color: black 0.8;
+  font-size: 1rem;
+  font-family: "Bangers", cursive;
+  text-align: center;
+}
+
+.btn-signup {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  padding: 10px;
+  font-family: "Bangers", cursive;
+  border-radius: 100% 10% / 10% 40%;
+  font-size: 20px;
+  box-shadow: 5px 5px 30px black;
+}
+.btn-login {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  padding: 10px;
+  font-family: "Bangers", cursive;
+  border-radius: 100% 10% / 10% 40%;
+  font-size: 20px;
+  box-shadow: 5px 5px 30px black;
 }
 
 /* MENU */
 .menu {
   display: flex;
   justify-content: space-evenly;
-  color: red;
+  color: white;
   padding: 5px;
-  border: 2px solid red;
+  border: 2px solid #ee171e;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: #ee171e;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+}
+.menu a :visited {
+  text-decoration: none;
 }
 
 /* CONTAINER */
 
 .container {
   width: 100%;
-  border: 2px solid green;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
 }
-.link {
+.navlink {
   position: relative;
 }
 
 .character-container {
-  border: 4px solid orange;
+  /* border: 4px solid orange; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
-.character-patch {
-  border: 3px solid pink;
-  margin: 10px;
-  width: 220px;
-  height: 400px;
-  overflow: hidden;
   position: relative;
+}
+
+.comics-patch {
+  border: 3px solid black;
+  margin: 10px;
+  width: 300px;
+  /* overflow: hidden; */
+  position: relative;
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  box-shadow: 10px 5px 15px black;
+}
+
+.character-patch {
+  border: 3px solid black;
+  margin: 10px;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  box-shadow: 10px 5px 15px black;
 }
 
 .character-patch-pic {
   width: 100%;
-  height: 60%;
+  height: 100%;
   object-fit: cover;
+  position: relative;
+}
+.btn-fav-2 {
+  position: absolute;
+  color: red;
+  z-index: 2;
+  background-color: white;
+  padding: 5px;
+  top: 0;
+  right: 0;
+  border-radius: 100% 10% / 10% 40%;
+  font-size: 30px;
+}
+.btn-fav {
+  color: white;
+  padding: 5px;
+  background-color: black;
+  top: 0;
+  right: 0;
+  border-radius: 100% 10% / 10% 40%;
+  font-size: 10px;
+  width: 20%;
 }
 
-.checkbox-fav {
+.btn-fav:hover {
+  cursor: pointer;
+}
+
+.name-patch {
   position: absolute;
+  color: white;
+  background-color: #ee171e;
+  padding: 10px;
+  bottom: -10px;
+  right: -10px;
+  border-radius: 100% 10% / 10% 40%;
 }
 
 /* COMICS BY CHARACTER */
 .character-comics-container {
-  border: 4px solid orange;
+  /* border: 4px solid orange; */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+.character-comics-container-patch {
+  /* border: 5px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+}
+.character-comics-patch {
+  /* border: 3px solid pink; */
+  margin: 10px;
+  width: 300px;
+  object-fit: contain;
+}
+.description {
+  margin: 3%;
+  width: 70%;
 }
 
-.character-comics-patch {
-  border: 3px solid pink;
-  margin: 10px;
-  width: 400px;
-  height: 700px;
+.title-character {
+  color: black;
+  font-size: 40px;
+  /* border: 3px solid #ee171e; */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.title-pic {
+  width: 30%;
+  border: 4px black solid;
+  box-shadow: 10px 5px 15px black;
+}
+
+.comics-part {
+  /* border: 3px solid yellow; */
 }
 
 /* PAGE */
@@ -97,27 +219,34 @@ body {
   display: flex;
   justify-content: center;
   margin: 10px;
-  background-color: red;
+  background-color: none;
   align-items: center;
+  color: black;
 }
 
 .page-btn {
-  margin: 5px;
-  background-color: rosybrown;
+  margin: 0px 10px;
+  background-color: none;
+  border: transparent;
+  color: black;
+  font-family: "Bangers", cursive;
+  background-color: transparent;
+  background-repeat: no-repeat;
   border: none;
-  color: white;
+  cursor: pointer;
+  font-size: 20px;
 }
 /* SIGNUP */
 /* The Modal (background) */
 .signup {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -125,23 +254,21 @@ body {
   display: flex;
   flex-direction: column;
   background-color: black;
-  height: 50%;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 10% auto;
   padding: 20px;
-  width: 35%; /* Could be more or less, depending on screen size */
-  background-image: url("./img/deadpool.webp");
+  width: 35%;
 }
 
 /* The Close Button */
 .close {
   color: white;
-  float: right;
   width: 5%;
+  margin-left: 90%;
 }
 
 .close:hover,
 .close:focus {
-  color: red;
+  color: #ee171e;
   text-decoration: none;
   cursor: pointer;
 }
@@ -155,17 +282,89 @@ form {
 
 form input {
   margin: 10px;
-  padding: 10px;
+  padding: 10px 20px;
   width: 80%;
   border: none;
-  border-bottom: 1px red dashed;
-  background-color: black;
-  color: white;
+  color: black;
+  font-family: "Bangers", cursive;
+  border-radius: 10% 10% /50% 10%;
 }
 
 .btn-send {
-  margin: 40px;
+  margin: 20px 0px 10px;
   width: 30%;
-  background-color: red;
+  background-color: #ee171e;
   color: white;
+  font-size: 15px;
+  font-family: "Bangers", cursive;
+  border-radius: 50% 10% / 10% 40%;
+}
+
+h1 {
+  color: #ee171e;
+  text-align: center;
+}
+
+/* favoris */
+
+.container-perso-favoris {
+  border: blueviolet 3px solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.perso-favoris {
+  border: rgb(46, 58, 69) 3px solid;
+}
+
+.pic-perso-favoris {
+  width: 30%;
+}
+
+/* HOME */
+
+.homepage {
+  font-size: 40px;
+  text-align: center;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  margin-top: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.header-logo:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.footer {
+  width: 100%;
+  height: 90px;
+  background-color: #ee171e;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }

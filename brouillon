@@ -1,0 +1,83 @@
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const character = search ? `name=${search}` : "";
+//         const response = await axios.get(
+//           `http://localhost:3001/characters?${character}&page=${page}`
+//         );
+
+//         let myFavorites = [];
+//         if (token) {
+//           const myFavoritesResponse = await axios.get(
+//             `http://localhost:3001/favoris?token=${token}`
+//           );
+//           myFavorites = myFavoritesResponse.data;
+//         }
+
+//         for (let i = 0; i < response.data.results.length; i++) {
+//           const result = response.data.results[i];
+//           const character = myFavorites.find((elem) => elem._id === result._id);
+//           if (character) {
+//             result.isFav = true;
+//           } else {
+//             result.isFav = false;
+//           }
+//         }
+//         console.log(response.data);
+//         setData(response.data);
+
+//         setIsLoading(false);
+//       } catch (error) {
+//         console.log(error.message);
+//       }
+//     };
+//     fetchData();
+//   }, [search, page]);
+
+// const addToFav = async (item) => {
+//   try {
+//     const newData = [...data.results];
+//     for (let i = 0; i < newData.length; i++) {
+//       if (newData[i]._id === item._id) {
+//         const element = newData[i];
+//         // copie de l'élément (newData[i]) pour éviter de changer le tableau original
+//         newData[i] = { ...element };
+//         // modification de la copie
+//         newData[i].isFav = true;
+//         console.log(newData[i]);
+//       }
+//     }
+//     // copie de l'objet, et modification de la clé de la copie)
+//     setData({ ...data, results: newData });
+//     const newFav = { favCharacter: item, token: token };
+//     console.log(newFav);
+//     const response = await axios.post("http://localhost:3001/add", newFav);
+//     console.log("le tableau favoris ===> ", response.data);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };
+
+// const addFav = async (item) => {
+//   try {
+//     const newData = [...data.results];
+//     for (let i = 0; i < newData.length; i++) {
+//       if (newData[i]._id === item._id) {
+//         const element = newData[i];
+//         // copie de l'élément (newData[i]) pour éviter de changer le tableau original
+//         newData[i] = { ...element };
+//         // modification de la copie
+//         newData[i].isFav = true;
+//         console.log(newData[i]);
+//       }
+//     }
+//     // copie de l'objet, et modification de la clé de la copie)
+//     setData({ ...data, results: newData });
+//     const newFav = { favCharacter: item, token: token };
+//     console.log(newFav);
+//     const response = await axios.post("http://localhost:3001/add", newFav);
+//     console.log("le tableau favoris ===> ", response.data);
+//   } catch (error) {
+//     console.log(error.messaage);
+//   }
+// };

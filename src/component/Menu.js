@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import Login from "./Login";
 
-const Menu = () => {
+const Menu = ({ token, setDisplayLogin }) => {
   return (
     <div className="menu">
       <Link to="/characters">PERSONNAGES</Link>
       <Link to="/comics">COMICS</Link>
-      <Link to="/favoris">FAVORIS</Link>
+      {token && (
+        <Link onClick={setDisplayLogin} to="/favoris">
+          FAVORIS
+        </Link>
+      )}
     </div>
   );
 };

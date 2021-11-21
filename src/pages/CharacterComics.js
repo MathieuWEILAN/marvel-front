@@ -26,6 +26,15 @@ const CharacterComics = () => {
     <div>Chargement en cours </div>
   ) : (
     <div className="container">
+      <div className="title-character">{data.name}</div>
+      <div className="character-comics-container-patch">
+        <img
+          className="title-pic"
+          src={data.thumbnail.path + "." + data.thumbnail.extension}
+          alt=""
+        />
+        <div className="description">{data.description}</div>
+      </div>
       <div className="character-comics-container">
         {data.comics.map((comic, i) => {
           const picture =
@@ -38,8 +47,8 @@ const CharacterComics = () => {
                   alt="comics"
                   className="character-patch-pic"
                 />
-                <div>{comic.title}</div>
-                <div>{comic.description}</div>
+                {/* <div>{comic.title}</div>
+                <div>{comic.description}</div> */}
               </div>
             </div>
           );

@@ -2,62 +2,48 @@ import { useState } from "react";
 import close from "../img/close-icon.png";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router";
 
-const Signup = ({ signupOn, setDisplaySignup, setToken }) => {
-  const [username, setUsername] = useState("");
+const Login = ({ loginOn, setDisplayOn, setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState();
 
   const handleEmail = (event) => {
     let value = event.target.value;
     setEmail(value);
   };
-  const handleUSername = (event) => {
-    let value = event.target.value;
-    setUsername(value);
-  };
+
   const handlePassword = (event) => {
     let value = event.target.value;
     setPassword(value);
   };
 
-  const addUSer = async (event) => {
+  const navigate = useNavigate();
+  const handleLogin = async (event) => {
     try {
       event.preventDefault();
-      if (!username || !email || !password) {
-        return alert("Missing informations");
+      if (!password || !email) {
+        return alert("Missing information");
       } else {
-        const newUser = {
-          username: username,
-          email: email,
-          password: password,
-        };
-        console.log(newUser);
-        const response = await axios.post(
-          "http://localhost:3001/signup",
-          newUser
-        );
-        setUser(response.data);
-        console.log(response.data);
+        const user = { email: email, password: password };
+        console.log(user);
+        const response = await axios.post("http://localhost:3001/login", user);
         const token = response.data.token;
         const id = response.data.id;
-        Cookies.set("token", token, { expires: 7 });
+        Cookies.set("token", token, { expires: 14 });
         setToken(token);
-        setDisplaySignup(false);
+        navigate("/characters", { id });
       }
     } catch (error) {
       console.log(error.message);
     }
   };
-
   return (
     <div className="signup">
       <div className="signup-content">
-        <img src={close} alt="" className="close" onClick={signupOn} />
-        <h1>Inscription</h1>
-        <form action="" onSubmit={addUSer}>
-          <input type="text" placeholder="Username" onChange={handleUSername} />
+        <img src={close} alt="" className="close" onClick={loginOn} />
+        <h1>Se connecter</h1>
+        <form action="" onSubmit={handleLogin}>
           <input type="email" placeholder="Email" onChange={handleEmail} />
           <input
             type="password"
@@ -71,4 +57,4 @@ const Signup = ({ signupOn, setDisplaySignup, setToken }) => {
   );
 };
 
-export default Signup;
+export default Login;

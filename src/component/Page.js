@@ -1,13 +1,13 @@
-const Page = ({ page, setPage, data }) => {
+const Page = ({ page, setPage, tab }) => {
   const handlePageAdd = () => {
-    if (page * data.limit <= data.count) return setPage(page + 1);
+    if (page * tab.limit <= tab.count) return setPage(page + 1);
   };
   const handlePageRemove = () => {
     if (page > 1) return setPage(page - 1);
   };
 
   const handlelastPage = () => {
-    let lastPage = Math.round(data.count / data.limit);
+    let lastPage = Math.round(tab.count / tab.limit);
     setPage(lastPage);
   };
 
@@ -16,10 +16,10 @@ const Page = ({ page, setPage, data }) => {
   };
 
   const handleAddTen = () => {
-    if ((page + 10) * data.limit <= data.count) {
+    if ((page + 10) * tab.limit <= tab.count) {
       return setPage(page + 10);
-    } else if (page + 10 >= Math.round(data.count / data.limit)) {
-      return setPage(Math.round(data.count / data.limit));
+    } else if (page + 10 >= Math.round(tab.count / tab.limit)) {
+      return setPage(Math.round(tab.count / tab.limit));
     }
   };
 
@@ -31,14 +31,17 @@ const Page = ({ page, setPage, data }) => {
     }
   };
 
-  const numberOfPages = Math.round(data.count / data.limit);
+  const numberOfPages = Math.round(tab.count / tab.limit);
 
   return (
     <div className="page">
       <button className="page-btn" onClick={handleFirstPage}>
         FirstPage
       </button>
-      <button onClick={handleRemoveTen}> &laquo;</button>
+      <button className="page-btn" onClick={handleRemoveTen}>
+        {" "}
+        &laquo;
+      </button>
       <button className="page-btn" onClick={handlePageRemove}>
         &lsaquo;
       </button>
@@ -48,7 +51,9 @@ const Page = ({ page, setPage, data }) => {
       <button className="page-btn" onClick={handlePageAdd}>
         &rsaquo;
       </button>
-      <button onClick={handleAddTen}>&raquo; </button>
+      <button className="page-btn" onClick={handleAddTen}>
+        &raquo;{" "}
+      </button>
       <button className="page-btn" onClick={handlelastPage}>
         LastPage
       </button>
